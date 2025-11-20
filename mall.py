@@ -45,18 +45,20 @@ def mall():
 
         if choice.lower() in ["no", "n",'NO','No']:
             break
-        try:    
-          item_no = int(input("Select the item number (1-8): "))
-        except:
-          print("Enter Valid Number Please !")
-          item_no = int(input("select the item no (1-8) .."))  
+        while True:    
+          try:    
+             item_no = int(input("Select the item number (1-8): "))
+             break
+          except valueError:
+            print("Enter Valid Number Please !")
+            
         if 1 <= item_no <= len(menu):
-            try:
-               qty = int(input("How many do you want quantity  ..  "))
-            except:
-              print("Invalid input quantity ")
-              qty = int(input("How many do you want quantity  .. "))
-              
+            while True:
+              try:
+                 qty = int(input("How many do you want quantity  ..  "))
+              except valueError:
+                 print("Invalid input quantity ")
+            
 
             # item name nikalna
             item_name = list(menu.keys())[item_no - 1]
